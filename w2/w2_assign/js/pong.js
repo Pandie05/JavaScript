@@ -28,6 +28,13 @@ ball.vx = -3
 ball.vy = -3
 ball.color = `black`
 
+//player array
+var player = [new Player(), new Player()]
+
+//give player paddle
+player[0].pad = new Box();
+player[1].pad = new Box();
+
 function main()
 {
     //erases the canvas
