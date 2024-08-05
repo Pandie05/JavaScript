@@ -39,6 +39,16 @@ ball.vx = -3
 ball.vy = -3
 ball.color = `black`
 
+
+
+//score setup
+player[0].score = 0
+player[1].score = 0
+
+var scoreDivs = document.querySelectorAll('#score div')
+
+console.log(scoreDivs);
+
 function main()
 {
     //erases the canvas
@@ -147,6 +157,11 @@ function main()
         console.log(player[1].score, "|", player[0].score)
     }
 
+    //score display
+    for (var i = 0; i < scoreDivs.length; i++) 
+    {
+        scoreDivs[i].innerText = `Player ${i + 1}: ${player[i].score}`;
+    }
 
     //draw the objects
     pad[0].draw()
