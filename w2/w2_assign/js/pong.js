@@ -132,6 +132,22 @@ function main()
         ball.vx = -ball.vx;
     }
 
+    //scoring
+    if(ball.x < 2)
+    {
+        player[1].score++
+
+        console.log(player[1].score, "|", player[0].score)
+    }
+
+    if(ball.x > c.width - 2)
+    {
+        player[0].score++
+
+        console.log(player[1].score, "|", player[0].score)
+    }
+
+
     //draw the objects
     pad[0].draw()
     pad[1].draw()
