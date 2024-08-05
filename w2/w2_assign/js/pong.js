@@ -35,8 +35,8 @@ pad[1].x = c.width - pad[1].w/2
 var ball = new Box();
 ball.w = 20
 ball.h = 20
-ball.vx = -3
-ball.vy = -3
+ball.vx = -5
+ball.vy = -5
 ball.color = `black`
 
 
@@ -86,60 +86,55 @@ function main()
     //ball movement
     ball.move()
 
-    //p1 collision
-    if(pad[0].y < 0+pad[0].h/2)
+   //paddle movement and collision
+    for (var i = 0; i < pad.length; i++) 
     {
-        pad[0].y = 0+pad[0].h/2
-    }
-    if(pad[0].y > c.height-pad[0].h/2)
-    {
-        pad[0].y = c.height-pad[0].h/2
+        if (ball.collide(pad[i])) 
+        {
+            if (i === 0) 
+            {
+                ball.x = pad[i].x + pad[i].w / 2 + ball.w / 2;
+            } 
+            else 
+            {
+                ball.x = pad[i].x - pad[i].w / 2 - ball.w / 2;
+            }
+            ball.vx = -ball.vx;
+        }
+
+        if(pad[i].y < 0 + pad[i].h / 2)
+        {
+            pad[i].y = 0 + pad[i].h / 2
+        }
+
+        if(pad[i].y > c.height-pad[i].h / 2)
+        {
+            pad[i].y = c.height-pad[i].h / 2
+        }
+
     }
 
-    //p2 collision
-    if(pad[1].y < 0+pad[1].h/2)
+    // ball collision
+    for (var i = 0; i < pad.length; i++) 
     {
-        pad[1].y = 0+pad[1].h/2
-    }
-    if(pad[1].y > c.height-pad[1].h/2)
-    {
-        pad[1].y = c.height-pad[1].h/2
-    }
-
-    //ball collision 
-    if(ball.x < 0)
-    {
-        ball.x = c.width/2
-        ball.y = c.height/2
-    }
-    if(ball.x > c.width)
-    {
-        ball.x = c.width/2
-        ball.y = c.height/2
-    }
-    if(ball.y < 0)
-    {
-        ball.y = 0
-        ball.vy = -ball.vy
-    }
-    if(ball.y > c.height)
-    {
-        ball.y = c.height
-        ball.vy = -ball.vy
-    }
-
-    //p1 with ball collision
-    if(ball.collide(pad[0]))
-    {
-        ball.x = pad[0].x + pad[0].w/2 + ball.w/2
-        ball.vx = -ball.vx;
-    }
-
-    //p2 with ball collision
-    if(ball.collide(pad[1]))
-    {
-        ball.x = pad[1].x - pad[1].w/2 - ball.w/2
-        ball.vx = -ball.vx;
+        if (ball.x < 0 || ball.x > c.width) 
+        {
+            ball.x = c.width / 2;
+            ball.y = c.height / 2;
+        }
+        
+        if (ball.y < 0 || ball.y > c.height) 
+        {
+            if (ball.y < 0) 
+            {
+                ball.y = 0;
+            } 
+            else 
+            {
+                ball.y = c.height;
+            }
+            ball.vy = -ball.vy;
+        }
     }
 
     //scoring
@@ -164,7 +159,10 @@ function main()
     }
 
     //draw the objects
-    pad[0].draw()
-    pad[1].draw()
+    for (var i = 0; i < pad.length; i++) 
+    {
+        pad[i].draw();
+    }
+    
     ball.draw()
 }
