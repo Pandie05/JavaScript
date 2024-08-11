@@ -4,19 +4,11 @@
     . show or hide the `.sides` div
 ---------*/
 
-<<<<<<< HEAD
 var optionButt = document.querySelector('h2');
 
 optionButt.addEventListener('click', () => {
 
     var sidesDiv = document.querySelector('.sides');
-=======
-const optionsHeading2 = document.querySelector('h2');
-
-optionsHeading2.addEventListener('click', () => {
-
-    const sidesDiv = document.querySelector('.sides');
->>>>>>> da02d65e674dace7d0b5f5644d6015ebd9890e32
 
     sidesDiv.classList.toggle('hidden');
 
@@ -32,7 +24,6 @@ optionsHeading2.addEventListener('click', () => {
 
 -----------*/
 
-<<<<<<< HEAD
 // Select all fill input elements
 var fillInputs = document.querySelectorAll('.op');
 var outputDiv = document.querySelector('.output');
@@ -55,8 +46,6 @@ fillInputs.forEach((input, index) => {
 });
 
 
-=======
->>>>>>> da02d65e674dace7d0b5f5644d6015ebd9890e32
 /*---------
     Program the six key inputs to do the following:
     . Display the correct key names for each player   
