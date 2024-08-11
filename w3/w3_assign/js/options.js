@@ -104,18 +104,28 @@ var sIn = document.querySelectorAll('.s');
 
 sIn.forEach((input, index) => {
         
-            input.value = player[index].keys.s;
+        input.value = player[index].keys.s;
         
-            input.addEventListener('keydown', (e) => {
+        input.addEventListener('keydown', (e) => {
         
-                input.value = e.key;
+            input.value = e.key;
         
-                player[index].keys.s = e.key;
-                outDiv.innerHTML = player[index].keys.s;
-            });
+            player[index].keys.s = e.key;
+            outDiv.innerHTML = player[index].keys.s;
+        });
         
-            input.addEventListener('focus', () => {
-                currentState = 'pause';
-            });
-        }
+        input.addEventListener('focus', () => {
+            currentState = 'pause';
+        });
+    }
 );
+
+//color of canvas
+var canCol = document.querySelector('.canvasColor');
+
+canCol.addEventListener('input', (e) => {
+
+    var canvas = document.querySelector('canvas');
+    canvas.style.backgroundColor = e.target.value;
+
+});
