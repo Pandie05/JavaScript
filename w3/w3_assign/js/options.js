@@ -8,9 +8,9 @@ var optionButt = document.querySelector('h2');
 
 optionButt.addEventListener('click', () => {
 
-    var sidesDiv = document.querySelector('.sides');
+    var sides = document.querySelector('.sides');
 
-    sidesDiv.classList.toggle('hidden');
+    sides.classList.toggle('hidden');
 
 })
 
@@ -25,14 +25,14 @@ optionButt.addEventListener('click', () => {
 -----------*/
 
 // Select all fill input elements
-var fillInputs = document.querySelectorAll('.op');
-var outputDiv = document.querySelector('.output');
+var fillIn = document.querySelectorAll('.op');
+var outDiv = document.querySelector('.output');
 
 // Iterate through each fill input element
-fillInputs.forEach((input, index) => {
+fillIn.forEach((input, index) => {
 
     input.value = player[index].fill;
-    outputDiv.innerHTML = player[index].fill;
+    outDiv.innerHTML = player[index].fill;
     
 
     input.addEventListener('input', (e) => {
@@ -40,7 +40,7 @@ fillInputs.forEach((input, index) => {
         player[index].fill = e.target.value;
         
         o[index].fill = e.target.value;
-        outputDiv.innerHTML = e.target.value;
+        outDiv.innerHTML = e.target.value;
 
     });
 });
@@ -54,3 +54,68 @@ fillInputs.forEach((input, index) => {
         .Change the player's key to the value of the input
         .Show the player's key in the output div 
 -----------*/
+
+var uIn = document.querySelectorAll('.u');
+
+uIn.forEach((input, index) => {
+
+    input.value = player[index].keys.u;
+
+
+    input.addEventListener('keydown', (e) => {
+
+        input.value = e.key;
+
+
+        player[index].keys.u = e.key;
+        outDiv.innerHTML = player[index].keys.u;
+    });
+
+    input.addEventListener('focus', () => {
+        currentState = 'pause';
+    });
+});
+
+//MAKING DOWN OPTION WORK RAHHH
+
+var dIn = document.querySelectorAll('.d');
+
+dIn.forEach((input, index) => {
+    
+        input.value = player[index].keys.d;
+    
+        input.addEventListener('keydown', (e) => {
+    
+            input.value = e.key;
+    
+            player[index].keys.d = e.key;
+            outDiv.innerHTML = player[index].keys.d;
+        });
+    
+        input.addEventListener('focus', () => {
+            currentState = 'pause';
+        });
+    }
+);
+
+//MAKING STRAIGHT OPTION WORK RAHHH
+
+var sIn = document.querySelectorAll('.s');
+
+sIn.forEach((input, index) => {
+        
+            input.value = player[index].keys.s;
+        
+            input.addEventListener('keydown', (e) => {
+        
+                input.value = e.key;
+        
+                player[index].keys.s = e.key;
+                outDiv.innerHTML = player[index].keys.s;
+            });
+        
+            input.addEventListener('focus', () => {
+                currentState = 'pause';
+            });
+        }
+);
