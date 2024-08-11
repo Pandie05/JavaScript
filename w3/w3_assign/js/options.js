@@ -55,6 +55,10 @@ fillIn.forEach((input, index) => {
         .Show the player's key in the output div 
 -----------*/
 
+<<<<<<< HEAD
+=======
+// Select all "u" inputs
+>>>>>>> 53da53cbb3d5ed681ad90d2f2959ac64927acad1
 var uIn = document.querySelectorAll('.u');
 
 uIn.forEach((input, index) => {
@@ -68,13 +72,18 @@ uIn.forEach((input, index) => {
 
 
         player[index].keys.u = e.key;
+<<<<<<< HEAD
         outDiv.innerHTML = player[index].keys.u;
+=======
+        outputDiv.innerHTML = player[index].keys.u;
+>>>>>>> 53da53cbb3d5ed681ad90d2f2959ac64927acad1
     });
 
     input.addEventListener('focus', () => {
         currentState = 'pause';
     });
 });
+<<<<<<< HEAD
 
 //MAKING DOWN OPTION WORK RAHHH
 
@@ -119,3 +128,5 @@ sIn.forEach((input, index) => {
             });
         }
 );
+=======
+>>>>>>> 53da53cbb3d5ed681ad90d2f2959ac64927acad1
