@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1</title>
+    <style>
+        .output{
+            font-family:Arial, Helvetica, sans-serif;
+            font-size:64px;
+            font-weight:bold;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="name">What is your name?</label>
+        <input type="text" name="name" placeholder="type your name">
+        <button id="submit">Submit</button>
+    </form>
+    <div class="output">
+        Bop
+    </div>
+    <script>
+        
+        var button = document.querySelector(`button`)
+        var input = document.querySelector(`input`)
+        var output = document.querySelector(`.output`)
+        var form = document.querySelector(`form`)
+
+        //When the button is clicked
+        button.addEventListener('click', (e) => {
+
+            //Use RegEx to ensure that there are only letters and spaces in the text box
+            var regex = /^[a-zA-Z ]*$/;
+
+            //If there are only letters.
+            if (regex.test(input.value)) {
+
+                //hide the form
+                form.style.display = 'none'
+                
+                //change the output color to `#000`
+                output.style.color=`#f00`
+
+                //display the output
+                output.style.display = "block"
+
+                //add text to the output that says:
+                //"Hello, <the typed name>. Welcome to your final exam!"
+                output.innerHTML += `<div>` + input.value + ` ` + `Welcome to your final exam!<div>`
+            }
+            //If there are numbers or special characters display the output
+            else {
+
+                output.style.display = "block"
+
+                //add an error message to the output stating: `Please use letters only.`
+                output.innerHTML += `<div>Please use letters only<div>`
+
+                //change the output color to `#f00`
+                output.style.color='#f00'
+            }
+            e.preventDefault()
+        });
+        
+    </script>
+</body>
+</html>

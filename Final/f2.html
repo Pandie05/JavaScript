@@ -63,7 +63,7 @@
             //fetch a location from `https://geocode.maps.co/search?q=02724+US`
             //(The zip code in the url should come from the zip area in the form field)
             var promise = fetch('https://geocode.maps.co/search?q=02724+US')
-            var data = promise.json
+            var data = promise.json()
 
             //console.log the returned data
             console.log(data)

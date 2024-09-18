@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1</title>
+</head>
+<body>
+    <main>
+        <div>
+            <input type="number" id="num1" value="5"> + 
+            <input type="number" id="num2" value="5"> = 
+            <input type="number" id="result" disabled>
+        </div>
+        <input type="button" value="Add The Numbers" id="addButton">
+    </main>
+    <script>
+
+        /*
+            create a function called add that accepts two arguments:
+                *a
+                *b
+                *return the sum of a and b
+
+            when the button is clicked
+                call an anonymous function (arrow ()=>{} or regular function(){}) 
+                The anonymous function will call the add function
+                    *pass the values of the inputs to the add function as Numbers
+                    HINT: type cast the values as numbers by using the Number() constructor function. 
+                    Example: Number(some string goes here);
+                *display the returned value in the last input.
+       */
+
+       function add(a, b) {
+           return a + b
+       }
+
+       document.getElementById('addButton').onclick = () => {
+
+           const num1 = Number(document.getElementById('num1').value)
+
+           const num2 = Number(document.getElementById('num2').value)
+
+           document.getElementById('result').value = add(num1, num2)
+           
+       };
+    </script>
+</body>
+</html>
+
